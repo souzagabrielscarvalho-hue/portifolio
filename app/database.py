@@ -1,8 +1,8 @@
 from sqlmodel import SQLModel, create_engine, Session
 
 sqlite_file_name = "portfolio_database.db"
-sqlite_url = f"sqlite:///{sqlite_file_name}"
-
+#sqlite_url = f"sqlite:///{sqlite_file_name}"
+sqlite_url = "sqlite:///:memory:"
 connect_args = {"check_same_thread": False}
 engine = create_engine(sqlite_url, echo=False, connect_args=connect_args)
 
