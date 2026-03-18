@@ -28,7 +28,6 @@ prev.addEventListener('click', () => {
     showItem(index);
 });
 
-
 const API_URL = "/api";
 
 let currentSessionId = localStorage.getItem('chat_session_id');
@@ -90,8 +89,18 @@ async function sendMessage(buttonElement) {
     appendMessage(historyArea, "Lendo os documentos e pensando...", 'bot', loadingId);
 
     try {
-        
-        const response = await fetch("/api/portfolio/chat", { ... });
+        // --- AQUI ESTAVA O ERRO DAS RETICÊNCIAS, SUBSTITUÍ PELO CÓDIGO CORRETO ---
+        const response = await fetch(`${API_URL}/portfolio/chat`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                session_id: currentSessionId,
+                message: messageText,
+                model_name: modelChoice
+            })
+        });
 
         document.getElementById(loadingId)?.remove();
 
@@ -126,7 +135,6 @@ document.querySelectorAll('.chat-input-area input').forEach(input => {
     });
 });
 
-
 function openModal(event) {
     event.preventDefault(); 
     document.getElementById("contact-modal").style.display = "block";
@@ -141,7 +149,6 @@ window.onclick = function(event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
-    
 }
 
 function scrollToTop(event) {
