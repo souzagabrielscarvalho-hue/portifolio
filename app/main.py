@@ -7,12 +7,12 @@ from fastapi.middleware.cors import CORSMiddleware
 async def lifespan(app: FastAPI):
     create_db_and_tables()
     yield
-
-app = FastAPI(
-    title="API do Meu Portfólio IA", 
-    description="Uma API em 3 camadas consultando PDFs via AWS Bedrock",
-    lifespan=lifespan
-)
+app = FastAPI(title="API do Meu Portfólio IA")
+# app = FastAPI(
+#     title="API do Meu Portfólio IA", 
+#     description="Uma API em 3 camadas consultando PDFs via AWS Bedrock",
+#     lifespan=lifespan
+# )
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
