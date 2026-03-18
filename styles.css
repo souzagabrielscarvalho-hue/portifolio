@@ -26,6 +26,7 @@ header {
     z-index: 1000; 
     background: radial-gradient(circle, rgb(53, 53, 90) 0%, rgb(52, 86, 87) 100%);      
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 #header-unico img {
@@ -370,4 +371,103 @@ html {
 
 .close-btn:hover {
     color: #000;
+}
+/* =========================================
+   AJUSTE FINO PARA CELULARES PEQUENOS (< 650px)
+   ========================================= */
+@media screen and (max-width: 650px) {
+    /* 1. Garante que o cabeçalho não ultrapasse a tela */
+    #header-unico {
+        width: 100%;
+        max-width: 100vw;
+        height: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 0;
+        z-index: 10;
+        box-sizing: border-box;
+        overflow: hidden; /* Corta qualquer coisa que tente vazar do cabeçalho */
+    }
+
+    /* 2. Força o menu a quebrar de linha (wrap) e ajusta o tamanho */
+    #header-unico nav {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #header-unico nav ul {
+        display: flex;
+        flex-wrap: wrap !important; /* O !important obriga os itens a pularem de linha */
+        justify-content: center;
+        gap: 8px;
+        padding: 0 10px;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 3. Reduz um pouco a fonte dos links para caberem bonitos na tela */
+    #header-unico nav ul li a {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+        white-space: normal; 
+    }
+
+    /* 4. Trava o carrossel de projetos para ele não forçar a tela pro lado */
+    section {
+        max-width: 100vw;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    
+    .list, .item {
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+    /* 1. Trava a tela para não rolar para os lados de jeito nenhum */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* 2. Força todos os elementos a respeitarem o limite da tela */
+    * {
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    /* 3. Retira qualquer largura mínima que as caixas de chat possam ter herdado */
+    .chat-box {
+        min-width: 0 !important;
+        width: 100%;
+        padding: 10px; /* Dá uma encolhida no espaçamento interno */
+    }
+
+    /* 4. Garante que o campo de texto e o botão não briguem por espaço */
+    .chat-input-area {
+        display: flex;
+        flex-direction: column; /* Joga o botão para a linha de baixo se precisar */
+        gap: 8px;
+    }
+    .chat-input-area input, 
+    .chat-input-area button {
+        width: 100%; /* Faz ambos ocuparem a largura total da caixinha */
+    }
+
+    /* 5. Dá uma encolhida nas fontes para caberem bonitas na tela menor */
+    .section-title, h2.title {
+        font-size: 1.5rem;
+        word-wrap: break-word; /* Quebra a palavra se for muito grande */
+    }
+    .section-description, .chat-description, .description {
+        font-size: 0.95rem !important;
+        padding: 0 10px;
+    }
+
+    /* 6. Reduz um pouco o QR Code para garantir */
+    .qrcode-container img {
+        max-width: 200px !important;
+    }
 }
