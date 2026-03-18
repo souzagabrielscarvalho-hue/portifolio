@@ -15,12 +15,18 @@ from app.models import ModelChoice
 class PortfolioAIService:
     def __init__(self, repository: ChatRepository):
         self.repository = repository
+        
+        base_dir = Path(__file__).parent.parent
         self.documentos_paths = [
-            Path(r'C:\repositorio\portfolio_api\portifolio\documents\Currículo.pdf'),
-            Path(r'C:\repositorio\portfolio_api\portifolio\documents\DESENVOLVIMENTO TECNOLÓGICO E INOVAÇÃO – PIBITI  2024-2025.pdf'),
-            Path(r'C:\repositorio\portfolio_api\portifolio\documents\Documentação Microsserviço.pdf'),
-            Path(r'C:\repositorio\portfolio_api\portifolio\documents\SIAD.pdf')
+            base_dir / 'documents' / 'Currículo.pdf',
+            base_dir / 'documents' / 'DESENVOLVIMENTO TECNOLÓGICO E INOVAÇÃO – PIBITI  2024-2025.pdf',
+            base_dir / 'documents' / 'Documentação Microsserviço.pdf',
+            base_dir / 'documents' / 'SIAD.pdf'
         ]
+        
+        for pdf in self.documentos_paths:
+            if not pdf.exists():
+                print(f"AVISO: PDF não encontrado no caminho -> {pdf}")
         
 
     def processar_mensagem(self, session_id: str, user_message: str, model_name: str) -> str:

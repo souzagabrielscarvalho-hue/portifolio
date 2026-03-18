@@ -1,3 +1,22 @@
-.env
+# Python
 __pycache__/
-portfolio_database.db
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Ambiente
+.env
+.vercel
+.vscode/
+
+# Banco de dados
+*.db
+*.db-*
+/tmp/*.db
+
+# Logs
+*.log
