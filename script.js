@@ -90,15 +90,8 @@ async function sendMessage(buttonElement) {
     appendMessage(historyArea, "Lendo os documentos e pensando...", 'bot', loadingId);
 
     try {
-        const response = await fetch(`${API_URL}/portfolio/chat`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                session_id: currentSessionId,
-                message: messageText,
-                model_choice: modelChoice 
-            })
-        });
+        
+        const response = await fetch("/api/portfolio/chat", { ... });
 
         document.getElementById(loadingId)?.remove();
 
