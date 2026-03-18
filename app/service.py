@@ -67,7 +67,7 @@ Se o usuário perguntar algo totalmente fora do contexto (como conhecimentos ger
             self.base_system_prompt = "Você é um assistente de respostas rápidas."
             model_settings = BedrockModelSettings(
             temperature=1.0,
-            max_tokens=4096,
+            max_tokens=2048,
             bedrock_performance_configuration={
                 "latency": "standard"
             }
@@ -89,20 +89,26 @@ Se o usuário perguntar algo totalmente fora do contexto (como conhecimentos ger
 
         input_data = []
         
-        print(f"[{model_name}] Carregando {len(self.documentos_paths)} PDFs...")
-        for pdf in self.documentos_paths:
-            if pdf.exists():
-                input_data.append(BinaryContent.from_path(pdf))
-            else:
-                print(f"AVISO: PDF não encontrado no caminho -> {pdf}")
+        if model_name != ModelChoice.haiku.value:
+            print(f"[{model_name}] Carregando {len(self.documentos_paths)} PDFs...")
+            for pdf in self.documentos_paths:
+                if pdf.exists():
+                    input_data.append(BinaryContent.from_path(pdf))
+                else:
+                    print(f"AVISO: PDF não encontrado no caminho -> {pdf}")
+        else:
+            print(f"[{model_name}] Modo rápido ativado: Nenhum PDF será enviado.")
 
+        # 2. Adiciona a instrução (pergunta do usuário) para TODOS os modelos
         input_data.append(texto_instrucao)
+        
+        # 3. Salva a pergunta do usuário no banco
         self.repository.save_message(session_id, "user", user_message, model_name)
 
-        print(f"[{model_name}] Enviando dados para a AWS Bedrock. Aguarde (isso pode demorar minutos)...")
+        print(f"[{model_name}] Enviando dados para a AWS Bedrock. Aguarde...")
         
+        # 4. Executa a IA (Agora isso roda para todos!)
         try:
-            # É provavelmente AQUI que o seu código está travando/demorando
             result = agent.run_sync(
                 input_data, 
                 model_settings=model_settings,
@@ -115,6 +121,7 @@ Se o usuário perguntar algo totalmente fora do contexto (como conhecimentos ger
             print(f"[{model_name}] ERRO NA AWS: {str(e)}")
             resposta_ia = f"Desculpe, ocorreu um erro ao consultar o modelo: {str(e)}"
             
+        # 5. Salva a resposta da IA e retorna para o frontend
         self.repository.save_message(session_id, "bot", resposta_ia, model_name)
         
         return resposta_ia

@@ -86,7 +86,7 @@ async function sendMessage(buttonElement) {
     buttonElement.style.opacity = "0.5"; 
     
     const loadingId = "loading-" + Date.now();
-    appendMessage(historyArea, "Lendo os documentos e pensando...", 'bot', loadingId);
+    appendMessage(historyArea, "...", 'bot', loadingId);
 
     try {
         // --- AQUI ESTAVA O ERRO DAS RETICÊNCIAS, SUBSTITUÍ PELO CÓDIGO CORRETO ---
