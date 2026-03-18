@@ -98,7 +98,7 @@ async function sendMessage(buttonElement) {
             body: JSON.stringify({
                 session_id: currentSessionId,
                 message: messageText,
-                model_name: modelChoice
+                model_choice: modelChoice  // <-- MUDE DE model_name PARA model_choice AQUI
             })
         });
 

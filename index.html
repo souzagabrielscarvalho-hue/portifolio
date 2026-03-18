@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículo Gabriel Carvalho</title>
-    <link rel="stylesheet" href="/static/styles.css">
-    <script src="/static/script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header id ="header-unico">
+    <header id="header-unico">
         <img src="img/5a8ea6c1-cba4-4312-8ecb-e5794f2d3153.jpg" alt="Foto de Perfil" class="profile-image">
         <nav>
             <ul>
@@ -24,7 +24,7 @@
     <section>
         <div class="list">
             <div class="item active">
-                <div class="imgprojetct"><img src="/img/siad.jpg" alt="Imagem do Projeto SIAD"></div>
+                <div class="imgprojetct"><img src="img/siad.jpg" alt="Imagem do Projeto SIAD"></div>
                 <div class="content">
                     <h2 class="title">SIAD</h2>
                     <p class="typeSystem">Sistema de Inscrição e Acompanhamento Desportivo</p>
@@ -37,9 +37,7 @@
                 <div class="content">
                     <h2 class="title">ISANUS</h2>
                     <p class="typeSystem">Sistema de Gestão Psicossocial</p>
-                    <p class="description">Plataforma de gestão e acompanhamento psicossocial destinada a escolas de ensino público. O projeto envolveu desde a criação de regras de negócio até a implementação final.
-                        Sistema de Banco de Dados postreSQL multi tenant, com autenticação e autorização, construção de API RESTful.
-                    </p>
+                    <p class="description">Plataforma de gestão e acompanhamento psicossocial destinada a escolas de ensino público. O projeto envolveu desde a criação de regras de negócio até a implementação final. Sistema de Banco de Dados postreSQL multi tenant, com autenticação e autorização, construção de API RESTful.</p>
                 </div>
             </div>
 
@@ -51,13 +49,16 @@
                     <p class="description">Microsserviço construído para disponibilizar diferentes modelos de IA para consumidores. Inclui gerenciamento de uso, processamento, limite de tokens e controle do grau de pensamento computacional.</p>
                 </div>
             </div>
-        </div> <div class = "arrow">
-            <button><img id="prev"src="img/arrow.png" alt="Seta para Esquerda"></button>
-            <button><img id="next"src="img/arrow.png" alt="Seta para Direita"></button>
+        </div> 
+        <div class="arrow">
+            <button><img id="prev" src="img/arrow.png" alt="Seta para Esquerda"></button>
+            <button><img id="next" src="img/arrow.png" alt="Seta para Direita"></button>
         </div>
-        <div class = "indicators">
-            <div class = "numbers">01</div> <ul>
-                <li class="active"></li> <li></li>
+        <div class="indicators">
+            <div class="numbers">01</div> 
+            <ul>
+                <li class="active"></li> 
+                <li></li>
                 <li></li>
             </ul>
         </div>
@@ -68,16 +69,12 @@
         
         <p class="chat-description">
             Converse com diferentes modelos de Inteligência Artificial. Eles funcionam como verdadeiros "secretários" de todos os meus projetos.<br><br>
-            
             <strong>Sonnet:</strong> Modelo com 64k tokens de saída e 32k para processamento de entrada. É o modelo mais demorado, mas com a resposta mais detalhada.<br><br>
-            
             <strong>Nova:</strong> Modelo mais rápido com latência otimizada, porém com limite de 16k tokens para entrada e saída. Ideal para conversas curtas e objetivas.<br><br>
-            
             <strong>Haiku:</strong> Modelo otimizado para respostas rápidas e concisas, pronto para responder a qualquer pergunta.
         </p>
 
         <div class="chat-container">
-            
             <div class="chat-box" data-model="us.anthropic.claude-sonnet-4-5-20250929-v1:0">
                 <h3>Sonnet</h3>
                 <div class="chat-history"></div>
@@ -104,7 +101,6 @@
                     <button type="button" onclick="sendMessage(this)">Enviar</button>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -116,7 +112,7 @@
             <strong>Atualmente quero comprar tokens para utilizar modelos que aceitem Áudios e Vídeos como entrada e saída :3</strong>
         </p>
         <div class="qrcode-container">
-            <img src="img/qrcode.jpg" alt="QR Code para Doação" style="max-width: 250px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
+            <img src="/img/qrcode.jpg" alt="QR Code para Doação" style="max-width: 250px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
             <p style="margin-top: 15px;">Escaneie o QR Code acima para fazer uma doação.</p>
         </div>
     </section>
