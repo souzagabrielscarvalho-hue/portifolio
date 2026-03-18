@@ -1,5 +1,5 @@
 from sqlmodel import Session, select
-from models import ChatMessage
+from app.models import ChatMessage
 
 class ChatRepository:
     def __init__(self, session: Session):
