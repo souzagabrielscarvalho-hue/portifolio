@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlmodel import Session
-from database import get_session
-from models import QueryRequest
-from repository import ChatRepository
-from service import PortfolioAIService
+from app.database import get_session
+from app.models import QueryRequest
+from app.repository import ChatRepository
+from app.service import PortfolioAIService
 
 router = APIRouter(prefix="/portfolio", tags=["AI Portfolio"])
 
