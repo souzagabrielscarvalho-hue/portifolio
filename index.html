@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Gabriel Carvalho</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header id ="header-unico">
+        <img src="img/5a8ea6c1-cba4-4312-8ecb-e5794f2d3153.jpg" alt="Foto de Perfil" class="profile-image">
+        <nav>
+            <ul>
+                <li><a href="#" onclick="scrollToTop(event)">Início</a></li>
+                <li><a href="#chat-section">Chats</a></li> 
+                <li><a href="#" onclick="openModal(event)">Contatos</a></li> 
+                <li><a href="documents/Currículo.pdf" target="_blank">Currículo</a></li> 
+                <li><a href="#doacao-section">Doação</a></li> 
+            </ul>
+        </nav>
+    </header>
+    
+    <section>
+        <div class="list">
+            <div class="item active">
+                <div class="imgprojetct"><img src="img/siad.jpg" alt="Imagem do Projeto SIAD"></div>
+                <div class="content">
+                    <h2 class="title">SIAD</h2>
+                    <p class="typeSystem">Sistema de Inscrição e Acompanhamento Desportivo</p>
+                    <p class="description">Aplicação web desenvolvida para os Jogos da Primavera da UEPG. Conta com integração direta de pagamentos via PIX utilizando a API EfiPay, construída em Python e Django.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="imgprojetct"><img src="img/isanus.jpg" alt="Isanus é um projeto que está em desenvolvimento em minhha antiga empresa, por conta disso vou omitir detalhes sobre"></div>
+                <div class="content">
+                    <h2 class="title">ISANUS</h2>
+                    <p class="typeSystem">Sistema de Gestão Psicossocial</p>
+                    <p class="description">Plataforma de gestão e acompanhamento psicossocial destinada a escolas de ensino público. O projeto envolveu desde a criação de regras de negócio até a implementação final.
+                        Sistema de Banco de Dados postreSQL multi tenant, com autenticação e autorização, construção de API RESTful.
+                    </p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="imgprojetct"><img src="img/imagemia.jpg" alt="Imagem do Projeto IA Microservice"></div>
+                <div class="content">
+                    <h2 class="title">IA Microservice</h2>
+                    <p class="typeSystem">API e Microsserviço de Inteligência Artificial</p>
+                    <p class="description">Microsserviço construído para disponibilizar diferentes modelos de IA para consumidores. Inclui gerenciamento de uso, processamento, limite de tokens e controle do grau de pensamento computacional.</p>
+                </div>
+            </div>
+        </div> <div class = "arrow">
+            <button><img id="prev"src="img/arrow.png" alt="Seta para Esquerda"></button>
+            <button><img id="next"src="img/arrow.png" alt="Seta para Direita"></button>
+        </div>
+        <div class = "indicators">
+            <div class = "numbers">01</div> <ul>
+                <li class="active"></li> <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </section> 
+
+    <section id="chat-section">
+        <h2 class="section-title" style="margin-top: 60px;">Meus Assistentes de IA</h2>
+        
+        <p class="chat-description">
+            Converse com diferentes modelos de Inteligência Artificial. Eles funcionam como verdadeiros "secretários" de todos os meus projetos.<br><br>
+            
+            <strong>Sonnet:</strong> Modelo com 64k tokens de saída e 32k para processamento de entrada. É o modelo mais demorado, mas com a resposta mais detalhada.<br><br>
+            
+            <strong>Nova:</strong> Modelo mais rápido com latência otimizada, porém com limite de 16k tokens para entrada e saída. Ideal para conversas curtas e objetivas.<br><br>
+            
+            <strong>Haiku:</strong> Modelo otimizado para respostas rápidas e concisas, pronto para responder a qualquer pergunta.
+        </p>
+
+        <div class="chat-container">
+            
+            <div class="chat-box" data-model="us.anthropic.claude-sonnet-4-5-20250929-v1:0">
+                <h3>Sonnet</h3>
+                <div class="chat-history"></div>
+                <div class="chat-input-area">
+                    <input type="text" placeholder="Fale com o Sonnet...">
+                    <button type="button" onclick="sendMessage(this)">Enviar</button>
+                </div>
+            </div>
+
+            <div class="chat-box" data-model="us.amazon.nova-pro-v1:0">
+                <h3>Nova</h3>
+                <div class="chat-history"></div>
+                <div class="chat-input-area">
+                    <input type="text" placeholder="Fale com a Nova...">
+                    <button type="button" onclick="sendMessage(this)">Enviar</button>
+                </div>
+            </div>
+
+            <div class="chat-box" data-model="us.anthropic.claude-3-haiku-20240307-v1:0">
+                <h3>Haiku</h3>
+                <div class="chat-history"></div>
+                <div class="chat-input-area">
+                    <input type="text" placeholder="Fale com o Haiku...">
+                    <button type="button" onclick="sendMessage(this)">Enviar</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="doacao-section" style="text-align: center; padding: 50px 20px;">
+        <h2 class="section-title">Apoie meu trabalho</h2>
+        <p class="section-description" style="max-width: 800px; margin: 0 auto 30px auto; color: #e0e0e0; font-size: 1.1em; line-height: 1.5;">
+            <strong>Modelos de IA custam dinheiro.</strong> No momento estou procurando trabalho como programador, então se você gostou do meu portfólio e quer me ajudar a continuar desenvolvendo projetos incríveis, considere fazer uma doação. Qualquer valor é bem-vindo e me ajudará a manter meus assistentes de IA funcionando e a criar novos projetos para compartilhar com vocês!
+            <br><br>
+            <strong>Atualmente quero comprar tokens para utilizar modelos que aceitem Áudios e Vídeos como entrada e saída :3</strong>
+        </p>
+        <div class="qrcode-container">
+            <img src="img/qrcode.jpg" alt="QR Code para Doação" style="max-width: 250px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
+            <p style="margin-top: 15px;">Escaneie o QR Code acima para fazer uma doação.</p>
+        </div>
+    </section>
+
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 style="color: #333; margin-bottom: 20px;">Meus Contatos</h2>
+            
+            <p><strong>📧 Email:</strong> <br>
+                <a href="mailto:souza.gabrielscarvalho@gmail.com">souza.gabrielscarvalho@gmail.com</a>
+            </p>
+            
+            <p><strong>💼 Linkedin:</strong> <br>
+                <a href="https://www.linkedin.com/in/gabriel-carvalho-47a22a349/" target="_blank">linkedin</a>
+            </p>
+            
+            <p><strong>📱 WhatsApp:</strong> <br>
+                <a href="https://wa.me/5542988867993" target="_blank">Iniciar conversa</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
